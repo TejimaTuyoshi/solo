@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 680346873}
   - component: {fileID: 680346872}
   m_Layer: 0
-  m_Name: Nomal (1)
+  m_Name: MoveSwich
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
