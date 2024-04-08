@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private Rigidbody rbody;
     [SerializeField] float speedZ;
     [SerializeField] GameObject camera;
+    public bool revarse = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,14 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey("a"))
         {
-            rbody.AddForce(Vector3.left * speedZ, ForceMode.Force);
+            if (revarse == false)
+            {
+                rbody.AddForce(Vector3.left * speedZ, ForceMode.Force);
+            }
+            if (revarse == true)
+            {
+                rbody.AddForce(Vector3.right * speedZ, ForceMode.Force);
+            }
         }
         if (Input.GetKey("s"))
         {
@@ -33,17 +41,26 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey("d"))
         {
-            rbody.AddForce(Vector3.right * speedZ, ForceMode.Force);
+            if (revarse == false)
+            {
+                rbody.AddForce(Vector3.right * speedZ, ForceMode.Force);
+            }
+            if (revarse == true)
+            {
+                rbody.AddForce(Vector3.left * speedZ, ForceMode.Force);
+            }
         }
         if (Input.GetKeyDown("space"))
         {
             Physics.gravity = new Vector3(0, 10.0F, 0);
             worldAngle.z = 180f;
+            revarse = true;
         }
         if (Input.GetKeyDown("c"))
         {
             Physics.gravity = new Vector3(0, -10.0F, 0);
             worldAngle.z = 0f;
+            revarse = false;
         }
         cameraRotation.eulerAngles = worldAngle; // âÒì]äpìxÇê›íË
     }
