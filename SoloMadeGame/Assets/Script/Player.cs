@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
     {
         Transform cameraRotation = camera.transform;
         Vector3 worldAngle = cameraRotation.eulerAngles;
+
         if (Input.GetKey("w"))
         {
             rbody.AddForce(Vector3.forward * speedZ, ForceMode.Force);
@@ -52,16 +55,36 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown("space"))
         {
-            Physics.gravity = new Vector3(0, 10.0F, 0);
-            worldAngle.z = 180f;
             revarse = true;
         }
         if (Input.GetKeyDown("c"))
         {
-            Physics.gravity = new Vector3(0, -10.0F, 0);
-            worldAngle.z = 0f;
             revarse = false;
         }
+        if (revarse == true)
+        {
+            Physics.gravity = new Vector3(0, 10.0F, 0);
+            worldAngle.z = 180f;
+        }
+        if (revarse == false)
+        {
+            Physics.gravity = new Vector3(0, -10.0F, 0);
+            worldAngle.z = 0f;
+        }
         cameraRotation.eulerAngles = worldAngle; // âÒì]äpìxÇê›íË
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("revarse"))
+        {
+            if (revarse == true)
+            {
+                revarse = false;
+            }
+            if (revarse == false)
+            {
+                revarse = true;
+            }
+        }
     }
 }
