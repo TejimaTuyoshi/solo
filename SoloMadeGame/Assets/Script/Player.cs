@@ -8,9 +8,11 @@ using UnityEngine.UIElements;
 public class Player : MonoBehaviour
 {
     private Rigidbody rbody;
-    [SerializeField] float speedZ;
+    [SerializeField]int speedZ;
     [SerializeField] GameObject camera;
     public bool revarse = false;
+    public bool slow = false;
+    float counttime = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +74,21 @@ public class Player : MonoBehaviour
             worldAngle.z = 0f;
         }
         cameraRotation.eulerAngles = worldAngle; // ‰ñ“]Šp“x‚ðÝ’è
+        if (slow == false)
+        {
+            speedZ = 10;
+        }
+        if (slow == true)
+        {
+            Debug.Log(counttime);
+            speedZ = 5;
+            counttime += Time.deltaTime;
+            if (counttime >= 1.5)
+            {
+                slow = false;
+                counttime = 0;
+            }
+        }
     }
     void OnTriggerEnter(Collider other)
     {
@@ -85,6 +102,10 @@ public class Player : MonoBehaviour
             {
                 revarse = true;
             }
+        }
+        if (other.gameObject.CompareTag("slow"))
+        {
+            slow = true;
         }
     }
 }
