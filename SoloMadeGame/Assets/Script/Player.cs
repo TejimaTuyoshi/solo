@@ -76,12 +76,12 @@ public class Player : MonoBehaviour
         cameraRotation.eulerAngles = worldAngle; // ‰ñ“]Šp“x‚ðÝ’è
         if (slow == false)
         {
-            speedZ = 10;
+            speedZ = 6;
         }
         if (slow == true)
         {
             Debug.Log(counttime);
-            speedZ = 5;
+            speedZ = 3;
             counttime += Time.deltaTime;
             if (counttime >= 1.5)
             {
@@ -106,6 +106,14 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("slow"))
         {
             slow = true;
+        }
+        if (other.gameObject.CompareTag("back"))
+        {
+            rbody.AddForce(Vector3.back * speedZ * 20, ForceMode.Force);
+        }
+        if (other.gameObject.CompareTag("go"))
+        {
+            rbody.AddForce(Vector3.forward * speedZ * 20, ForceMode.Force);
         }
     }
 }
