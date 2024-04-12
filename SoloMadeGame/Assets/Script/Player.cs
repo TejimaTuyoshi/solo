@@ -10,9 +10,10 @@ public class Player : MonoBehaviour
     private Rigidbody rbody;
     [SerializeField]int speedZ;
     [SerializeField] GameObject camera;
-    public bool revarse = false;
-    public bool slow = false;
-    float counttime = 0;
+    [SerializeField] bool revarse = false;
+    [SerializeField] bool slow = false;
+    float sCountTime = 0;
+    [SerializeField] bool gravity = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,11 +56,11 @@ public class Player : MonoBehaviour
                 rbody.AddForce(Vector3.left * speedZ, ForceMode.Force);
             }
         }
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") && gravity == false)
         {
             revarse = true;
         }
-        if (Input.GetKeyDown("c"))
+        if (Input.GetKeyDown("c") && gravity == false)
         {
             revarse = false;
         }
@@ -80,13 +81,13 @@ public class Player : MonoBehaviour
         }
         if (slow == true)
         {
-            Debug.Log(counttime);
+            Debug.Log(sCountTime);
             speedZ = 3;
-            counttime += Time.deltaTime;
-            if (counttime >= 1.5)
+            sCountTime += Time.deltaTime;
+            if (sCountTime >= 1.5)
             {
                 slow = false;
-                counttime = 0;
+                sCountTime = 0;
             }
         }
     }
@@ -105,15 +106,23 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.CompareTag("slow"))
         {
-            slow = true;
+            slow = true;//スピードを落とさせる。
         }
         if (other.gameObject.CompareTag("back"))
         {
-            rbody.AddForce(Vector3.back * speedZ * 20, ForceMode.Force);
+            rbody.AddForce(Vector3.back * speedZ * 20, ForceMode.Force);//一マス戻す。
         }
         if (other.gameObject.CompareTag("go"))
         {
-            rbody.AddForce(Vector3.forward * speedZ * 20, ForceMode.Force);
+            rbody.AddForce(Vector3.forward * speedZ * 20, ForceMode.Force);//一マス進む。
+        }
+        if (other.gameObject.CompareTag("gravity"))
+        {
+            gravity = true;//重力反転不可能になる。
+        }
+        if (other.gameObject.CompareTag("GLockOpen"))
+        {
+            gravity = false;//重力反転可能になる。
         }
     }
 }
