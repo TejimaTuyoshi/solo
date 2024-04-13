@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private Rigidbody rbody;
     [SerializeField]int speedZ;
     [SerializeField] GameObject camera;
+    [SerializeField] GameObject Light;
     [SerializeField] bool revarse = false;
     [SerializeField] bool slow = false;
     float sCountTime = 0;
@@ -123,6 +124,18 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("GLockOpen"))
         {
             gravity = false;//èdóÕîΩì]â¬î\Ç…Ç»ÇÈÅB
+        }
+        if (other.gameObject.CompareTag("switch"))
+        {
+            
+        }
+        if (other.gameObject.CompareTag("Dark"))
+        {
+            Light.gameObject.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("Light"))
+        {
+            Light.gameObject.SetActive(true);
         }
     }
 }
