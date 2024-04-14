@@ -131,11 +131,11 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Dark"))
         {
-            Light.gameObject.SetActive(false);
+            Light.gameObject.SetActive(false);//à≈èÛë‘Ç…Ç»ÇÈ
         }
         if (other.gameObject.CompareTag("Light"))
         {
-            Light.gameObject.SetActive(true);
+            Light.gameObject.SetActive(true);//å≥Ç…ñﬂÇÈ
         }
     }
 }
