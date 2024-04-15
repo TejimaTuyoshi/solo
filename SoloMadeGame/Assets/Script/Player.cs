@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.CompareTag("switch"))
         {
-            
+            move = false;//ゲームオーバーにする
         }
         if (other.gameObject.CompareTag("Dark"))
         {
@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.CompareTag("OutZone"))
         {
-            move = false;
+            move = false;//ゲームオーバーにする
         }
     }
 
