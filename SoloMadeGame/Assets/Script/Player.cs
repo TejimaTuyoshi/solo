@@ -1,20 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
     private Rigidbody rbody;
     [SerializeField]int speedZ;
-    [SerializeField] GameObject camera;
+    [SerializeField] GameObject camera1;
     [SerializeField] GameObject Light;
     [SerializeField] bool revarse = false;
     [SerializeField] bool slow = false;
     float sCountTime = 0;
     [SerializeField] bool gravity = false;
+    [SerializeField] bool move = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +20,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Transform cameraRotation = camera.transform;
+        Transform cameraRotation = camera1.transform;
         Vector3 worldAngle = cameraRotation.eulerAngles;
 
-        if (Input.GetKey("w"))
+        if (Input.GetKey("w") && move == true)
         {
             rbody.AddForce(Vector3.forward * speedZ, ForceMode.Force);
         }
-        if (Input.GetKey("a"))
+        if (Input.GetKey("a") && move == true)
         {
             if (revarse == false)
             {
@@ -42,11 +38,11 @@ public class Player : MonoBehaviour
                 rbody.AddForce(Vector3.right * speedZ, ForceMode.Force);
             }
         }
-        if (Input.GetKey("s"))
+        if (Input.GetKey("s") && move == true)
         {
             rbody.AddForce(Vector3.back * speedZ, ForceMode.Force);
         }
-        if (Input.GetKey("d"))
+        if (Input.GetKey("d") && move == true)
         {
             if (revarse == false)
             {
@@ -57,11 +53,11 @@ public class Player : MonoBehaviour
                 rbody.AddForce(Vector3.left * speedZ, ForceMode.Force);
             }
         }
-        if (Input.GetKeyDown("space") && gravity == false)
+        if (Input.GetKeyDown("space") && gravity == false && move == true)
         {
             revarse = true;
         }
-        if (Input.GetKeyDown("c") && gravity == false)
+        if (Input.GetKeyDown("c") && gravity == false && move == true)
         {
             revarse = false;
         }
@@ -137,5 +133,14 @@ public class Player : MonoBehaviour
         {
             Light.gameObject.SetActive(true);//Œ³‚É–ß‚é
         }
+        if (other.gameObject.CompareTag("OutZone"))
+        {
+            move = false;
+        }
+    }
+
+    public void startButton()
+    {
+        move = true;
     }
 }
