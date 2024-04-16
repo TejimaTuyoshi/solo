@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] bool slow = false;
     float sCountTime = 0;
     [SerializeField] bool gravity = false;
-    [SerializeField] bool move = false;
+    public bool move = false;
     // Start is called before the first frame update
     void Start()
     {
