@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Panel : MonoBehaviour
 {
@@ -14,5 +15,10 @@ public class Panel : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Title()
+    {
+        SceneManager.LoadScene("stage1", LoadSceneMode.Single);
     }
 }
