@@ -75,12 +75,12 @@ public class Player : MonoBehaviour
         cameraRotation.eulerAngles = worldAngle; // 回転角度を設定
         if (slow == false)
         {
-            speedZ = 4;
+            speedZ = 6;
         }
         if (slow == true)
         {
             Debug.Log(sCountTime);
-            speedZ = 2;
+            speedZ = 3;
             sCountTime += Time.deltaTime;
             if (sCountTime >= 1.5)
             {
@@ -121,10 +121,6 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("GLockOpen"))
         {
             gravity = false;//重力反転可能になる。
-        }
-        if (other.gameObject.CompareTag("switch"))
-        {
-            move = false;//ゲームオーバーにする
         }
         if (other.gameObject.CompareTag("Dark"))
         {
