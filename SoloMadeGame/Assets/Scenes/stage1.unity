@@ -6490,6 +6490,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 2882139618936839866, guid: e655fab5f1d4605448222f4f270bbbc2, type: 3}
+      propertyPath: m_EffectColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882139618936839866, guid: e655fab5f1d4605448222f4f270bbbc2, type: 3}
+      propertyPath: m_EffectColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882139618936839866, guid: e655fab5f1d4605448222f4f270bbbc2, type: 3}
+      propertyPath: m_EffectColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978163183914089492, guid: e655fab5f1d4605448222f4f270bbbc2, type: 3}
+      propertyPath: m_Text
+      value: Help
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978163183914089492, guid: e655fab5f1d4605448222f4f270bbbc2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978163183914089492, guid: e655fab5f1d4605448222f4f270bbbc2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978163183914089492, guid: e655fab5f1d4605448222f4f270bbbc2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3961017410073697644, guid: e655fab5f1d4605448222f4f270bbbc2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6498,6 +6526,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1834267931}
+    - target: {fileID: 4700706557666856964, guid: e655fab5f1d4605448222f4f270bbbc2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -910
+      objectReference: {fileID: 0}
     - target: {fileID: 4831970248257685819, guid: e655fab5f1d4605448222f4f270bbbc2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
