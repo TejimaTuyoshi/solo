@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField]int speedZ;
     [SerializeField] GameObject camera1;
     [SerializeField] GameObject Light;
+    [SerializeField] GameObject Panel;
     [SerializeField] bool revarse = false;
     [SerializeField] bool slow = false;
     float sCountTime = 0;
@@ -136,6 +137,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("OutZone"))
         {
             move = false;//ゲームオーバーにする
+            Panel.gameObject.SetActive(true);
         }
     }
 
