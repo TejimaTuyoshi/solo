@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1665560537835331195}
   - component: {fileID: 4332410473490752471}
   - component: {fileID: 6947520107202965578}
+  - component: {fileID: 8114539471793890869}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -105,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 5, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5, y: 5, z: 0.3010751}
+  m_Center: {x: 0, y: 0, z: 0.05053753}
 --- !u!114 &6947520107202965578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,3 +121,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  Panel: {fileID: 0}
+--- !u!65 &8114539471793890869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3353662753235349620}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 0.5925894}
+  m_Center: {x: 0, y: 0, z: 2.184074}
