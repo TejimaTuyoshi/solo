@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         cameraRotation.eulerAngles = worldAngle; // ‰ñ“]Šp“x‚ğİ’è
         if (slow == false)
         {
-            speedZ = 6;
+            speedZ = 5;
         }
         if (slow == true)
         {
