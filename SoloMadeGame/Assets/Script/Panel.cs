@@ -21,4 +21,8 @@ public class Panel : MonoBehaviour
     {
         SceneManager.LoadScene("stage1", LoadSceneMode.Single);
     }
+    public void Back()
+    {
+        SceneManager.LoadScene("stage2", LoadSceneMode.Single);
+    }
 }
