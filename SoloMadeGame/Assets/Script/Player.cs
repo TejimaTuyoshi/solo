@@ -87,12 +87,12 @@ public class Player : MonoBehaviour
         cameraRotation.eulerAngles = worldAngle; // ‰ñ“]Šp“x‚ðÝ’è
         if (slow == false)
         {
-            speedZ = 5;
+            speedZ = 4;
         }
         if (slow == true)
         {
             Debug.Log(sCountTime);
-            speedZ = 3;
+            speedZ = 2;
             sCountTime += Time.deltaTime;
             if (sCountTime >= 1.5)
             {
