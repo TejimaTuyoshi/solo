@@ -13,15 +13,15 @@ public class Player : MonoBehaviour
     float sCountTime = 0;
     [SerializeField] bool gravity = false;
     public bool move = false;
-    public AudioClip sound1;
-    public AudioClip sound2;
-    public AudioClip sound3;
-    public AudioClip sound4;
-    public AudioClip sound5;
-    public AudioClip sound6;
-    public AudioClip sound7;
-    public AudioClip sound8;
-    public AudioClip sound9;
+    public AudioClip revarsesound;
+    public AudioClip slowsound;
+    public AudioClip movesound;
+    public AudioClip gravitysound;
+    public AudioClip GLockOpensound;
+    public AudioClip Darksound;
+    public AudioClip Lightsound;
+    public AudioClip OutZonesound;
+    public AudioClip startButtonsound;
     AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -104,8 +104,8 @@ public class Player : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("revarse"))
-        {
-            audioSource.PlayOneShot(sound1);
+        {//強制的に重力を反転させる(反転ボタン関係なし)
+            audioSource.PlayOneShot(revarsesound);
             if (revarse == true)
             {
                 revarse = false;
@@ -117,42 +117,42 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.CompareTag("slow"))
         {
-            audioSource.PlayOneShot(sound2);
+            audioSource.PlayOneShot(slowsound);
             slow = true;//スピードを落とさせる。
         }
         if (other.gameObject.CompareTag("back"))
         {
-            audioSource.PlayOneShot(sound3);
+            audioSource.PlayOneShot(movesound);
             rbody.AddForce(Vector3.back * speedZ * 20, ForceMode.Force);//一マス戻す。
         }
         if (other.gameObject.CompareTag("go"))
         {
-            audioSource.PlayOneShot(sound3);
+            audioSource.PlayOneShot(movesound);
             rbody.AddForce(Vector3.forward * speedZ * 20, ForceMode.Force);//一マス進む。
         }
         if (other.gameObject.CompareTag("gravity"))
         {
-            audioSource.PlayOneShot(sound4);
+            audioSource.PlayOneShot(gravitysound);
             gravity = true;//重力反転不可能になる。
         }
         if (other.gameObject.CompareTag("GLockOpen"))
         {
-            audioSource.PlayOneShot(sound5);
+            audioSource.PlayOneShot(GLockOpensound);
             gravity = false;//重力反転可能になる。
         }
         if (other.gameObject.CompareTag("Dark"))
         {
-            audioSource.PlayOneShot(sound6);
+            audioSource.PlayOneShot(Darksound);
             Light.gameObject.SetActive(false);//闇状態になる
         }
         if (other.gameObject.CompareTag("Light"))
         {
-            audioSource.PlayOneShot(sound7);
+            audioSource.PlayOneShot(Lightsound);
             Light.gameObject.SetActive(true);//元に戻る
         }
         if (other.gameObject.CompareTag("OutZone"))
         {
-            audioSource.PlayOneShot(sound8);
+            audioSource.PlayOneShot(OutZonesound);
             move = false;//ゲームオーバーにする
             Panel.gameObject.SetActive(true);
         }
@@ -160,7 +160,7 @@ public class Player : MonoBehaviour
 
     public void startButton()
     {
-        audioSource.PlayOneShot(sound9);
+        audioSource.PlayOneShot(startButtonsound);
         move = true;
     }
 }
