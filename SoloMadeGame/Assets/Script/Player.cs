@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public AudioClip Darksound;
     public AudioClip Lightsound;
     public AudioClip OutZonesound;
+    public AudioClip Jumpsound;
     AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -67,10 +68,12 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown("space") && gravity == false && move == true)
         {
+            audioSource.PlayOneShot(Jumpsound);
             revarse = true;
         }
         if (Input.GetKeyDown("c") && gravity == false && move == true)
         {
+            audioSource.PlayOneShot(Jumpsound);
             revarse = false;
         }
         if (revarse == true)
