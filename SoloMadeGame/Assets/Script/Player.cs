@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     public AudioClip Darksound;
     public AudioClip Lightsound;
     public AudioClip OutZonesound;
-    public AudioClip startButtonsound;
     AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -160,7 +159,6 @@ public class Player : MonoBehaviour
 
     public void startButton()
     {
-        audioSource.PlayOneShot(startButtonsound);
         move = true;
     }
 }
